@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Normal Time</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="description" content="">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:alt" content="">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+  </head>
+  <body>
+    
+    <div class="container my-5">
+      <h1 class="display-1">Normal Time</h1>
+      <hr>
+      
+      <div class="row text-center">
+        <div class="col">
+          <h2>Time of Day</h2>
+          <svg viewBox="0 0 100 100" width="400" height="400">
+            <text id="clock-normal"
+                  x="20" y="52"
+                  style="font: italic 5px monospace;">⟲</text>
+            <g transform="translate(50 50)">
+              <g transform="rotate(90)">
+                <path id="clock-elapsed"
+                      d="M 0 0 L 10 10"
+                      style="fill:none; stroke: slategray; stroke-width: 5.5;"
+                      />      
+                <path id="clock-remaining"
+                      d="M 10 0 L 10 10"
+                      style="fill:none; stroke: gainsboro; stroke-width: 5.5;"
+                      />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="col">
+          <h2>Progress of Year</h2>
+          <svg viewBox="0 0 100 100" width="400" height="400">
+            <text id="calendar-normal"
+                  x="20" y="52"
+                  style="font: italic 5px monospace;">Date</text>
+            <g transform="translate(50 50)">
+              <g transform="rotate(90)">
+                <path id="calendar-elapsed"
+                      d="M 0 0 L 10 10"
+                      style="fill:none; stroke: slategray; stroke-width: 5.5;"
+                      />
+                <path id="calendar-remaining"
+                      d="M 10 0 L 10 10"
+                      style="fill:none; stroke: gainsboro; stroke-width: 5.5;"
+                      />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <br>
+      <div>
+        <p><span style="color: slategray;">█████</span> elapsed</p>
+        <p><span style="color: gainsboro;">█████</span> remaining</p>
+      </div>
+      <hr>
+      
+      <div>
+        <h2>About Normal Time</h2>
+        <p>To make time inhuman and rational, we must normalize it.
+          For any given unit of time, $0.0$ represents the start
+          and $1.0$ represents the completion of that cycle.
+          Times within that unit fall into the range
+          <span style="white-space: nowrap;">$[0.0, 1.0]$</span>,
+          which is $0.0$ to $1.0$ inclusive.</p>
+        <h3>Days</h3>
+        <p>Times within or between days (times and time periods that would be
+          expressed in seconds, minutes, or hours using SI units) are expressed
+          as bare fractions of a day, e.g. $0.2$.</p>
+        <p>Day values are calculated by taking the current time (hours, minutes,
+          seconds) and dividing by total milliseconds in a day
+          $(\sim8640000)$:</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$0.0$</dt>
+          <dd class="col-sm-10">midnight</dd>
+          <dt class="col-sm-2 text-end">$0.25$</dt>
+          <dd class="col-sm-10">6 AM</dd>
+          <dt class="col-sm-2 text-end">$0.5$</dt>
+          <dd class="col-sm-10">12 Noon</dd>
+          <dt class="col-sm-2 text-end">$0.75$</dt>
+          <dd class="col-sm-10">6 PM</dd>
+          <dt class="col-sm-2 text-end">$1.0$</dt>
+          <dd class="col-sm-10">12 Midnight</dd>
+        </dl>
+
+        <h3>Years</h3>
+        <p>Times within and between years (times and time periods that would be
+          expressed as weeks, months, or years) are expressed as fractions
+          followed by a <strong>$\circlearrowleft$</strong> symbol, e.g.
+          $0.7732\circlearrowleft$.</p>
+        <p>Year values are calculated by taking the days elapsed since January
+          1st divided by 365.25 (accounting for leap years):</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$0.0$</dt>
+          <dd class="col-sm-10">January 1st</dd>
+          <dt class="col-sm-2 text-end">$\approx0.25$</dt>
+          <dd class="col-sm-10">April 1st</dd>
+          <dt class="col-sm-2 text-end">$\approx0.5$</dt>
+          <dd class="col-sm-10">July 1st</dd>
+          <dt class="col-sm-2 text-end">$\approx0.75$</dt>
+          <dd class="col-sm-10">October 1st</dd>
+          <dt class="col-sm-2 text-end">$\approx0.999$</dt>
+          <dd class="col-sm-10">December 31st</dd>
+        </dl>
+
+        <h3>Human Lifetimes</h3>
+          <p>Human lives are expressed relative to an average human life
+          expectency of 76.0 years throughout history.</p>
+        <p>They are recorded differently for living and deceased
+          individuals.</p>
+        <p>The age of living individuals is represented as a fraction preceded
+          by a large hollow bullet symbol:</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$0.0$</dt>
+          <dd class="col-sm-10">Birth</dd>
+          <dt class="col-sm-2 text-end">$0.5$</dt>
+          <dd class="col-sm-10">Half of average</dd>
+          <dt class="col-sm-2 text-end">$1.21$</dt>
+          <dd class="col-sm-10">Past average</dd>
+        </dl>
+        <p>e.g.:</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$\circ{}0.562$</dt>
+          <dd class="col-sm-10">R. Shibe</dd>
+        </dl>
+        <p>For deceased individuals, this duration maps into the unit time of
+          their lifespan:</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$0.0$</dt>
+          <dd class="col-sm-10">Birth</dd>
+          <dt class="col-sm-2 text-end">$1.0$</dt>
+          <dd class="col-sm-10">Death</dd>
+        </dl>
+        <p>This means that the dates of events in a deceased individual’s life
+          can be scaled to their normal range.</p>
+        <p>To both indicate that someone's life is complete and to record how
+          long that life was, the lifespan of deceased individuals is
+          represented as $1.0$, followed by a large filled bullet symbol,
+          followed by their age at death as a fraction relative to average
+          lifespan as before, e.g.:</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$1.0\bullet{}0.571$</dt>
+          <dd class="col-sm-10">Mozart</dd>
+          <dt class="col-sm-2 text-end">$1.0\bullet{}0.98$</dt>
+          <dd class="col-sm-10">Da Vinci</dd>
+          <dt class="col-sm-2 text-end">$1.0\bullet{}1.1672$</dt>
+          <dd class="col-sm-10">Newton</dd>
+        </dl>
+        <p>Where bullet characters are unavailable, the at sign &quot;@&quot;
+          may be used instead.</p>
+        
+        <h3>Others</h3>
+        <p>Times relative to planned events can be expressed in terms of their
+          planned duration.</p>
+        <p>e.g. for a meeting:</p>
+        <dl class="row">
+          <dt class="col-sm-2 text-end">$0.0$</dt>
+          <dd class="col-sm-10">start</dd>
+          <dt class="col-sm-2 text-end">$1.0$</dt>
+          <dd class="col-sm-10">scheduled end</dd>
+          <dt class="col-sm-2 text-end">$2.7$</dt>
+          <dd class="col-sm-10">overrun</dd>
+        </dl>
+      </div>
+
+      <div>
+        <h2>Advantages of Normal Time</h2>
+        <p>Normal time makes it easy to compare progress across different time
+          scales by removing artificial human concepts of time. It creates a
+          unified way to express completion of any cyclic or linear time
+          period.</p>
+        <p>Dehumanizing time in this way has the counterintuitive effect of
+          making it more recognizably natural and intuitive for human beings to
+          express and understime durations.</p>
+        <p>Furthermore it respects that each human life is complete unto itself,
+          removing the implicit judgment of longer lives being "more complete".
+          It creates a clear distinction between lives that are "in progress"
+          and "complete" without obfuscating the progression of those lives.
+          And it recognizes that all completed lives are equally whole.</p>
+      </div>
+
+      <hr>
+
+    </div>
+
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/clock.js"></script>
+
+  </body>
+
+</html>
